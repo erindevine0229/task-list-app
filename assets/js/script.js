@@ -17,7 +17,7 @@ function createTaskCard({
     taskId, taskName, taskDesc, taskDue, taskStatus
 }) {
 
-const taskCard = $('<div></div>').addClass('task-card');
+const taskCard = $('<div></div>').addClass('task-card').attr('id', `task${taskId}`);
 
 const taskNameEl = $('<h3></h3>').text(taskName);
 const taskDescEl = $('<p></p>').text(taskDesc);
@@ -37,13 +37,13 @@ $('task-list').append(taskCard);
 // Todo: create a function to render the task list and make cards draggable
 function renderTaskList() {
 
-    const taskListContainer = $('task-list');
+    const taskListContainer = $('#task-list');
     taskListContainer.empty();
 
     for(i = 0; i < taskList.length; i++) {
         const taskCard = createTaskCard(taskList[i]);
         $('#todo-cards').append(taskCard);
-        $(`#task${i}`).draggable();
+        $(`#task${taskList[i].taskId}`).draggable();
 
     };
 }
@@ -55,7 +55,7 @@ function handleAddTask(event){
     const taskName = $('#task-name').val();
     const taskDesc = $('#task-desc').val();
     const taskDue = $('#task-due').val();
-    const taskStatus = $('task-status').val();
+    const taskStatus = $('#task-status').val();
 
     const addedTask = {
         taskId: generateTaskId(),
@@ -76,19 +76,30 @@ function handleDeleteTask(event){
 
     const taskId = $(event.target).closest('.task-card').attr('id');
 
-    const updatedTaskList = tasks.filter( function (task) {
+    const updatedTaskList = tasks.filter(function (task) {
         return task.taskId !== taskId;
     });
 
+    tasks = updatedTaskList;
+
     localStorage.setItem('tasks', JSON.stringify(tasks));
 
-    $(event.target).closest('task-card').addClass('hidden');
+    $(event.target).closest('.task-card').addClass('hidden');
 
 };
 
 // Todo: create a function to handle dropping a task into a new status lane
 function handleDrop(event, ui) {
     const dropTaskId = ui.draggable.draggable.attr('id');
+    const newSwimLane = event.target.id;
+
+    const task = tasks.find(function (task) {
+        return task.id === dropTaskId;
+    });
+
+    task.status = newSwimLane;
+
+    ui.draggable.appendTo(`#${newStatusLane}`);
 
 }
 
@@ -103,7 +114,7 @@ $(document).ready(function () {
         }
     });
 
-    $('#due').datepicker();
+    $('#task-due').datepicker();
 
 renderTaskList();
 });

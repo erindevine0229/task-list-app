@@ -32,7 +32,7 @@
         <h1 class="modal-title fs-5" id="add-task">Add Task</h1>
         <!-- Button to start add task -->
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        <!--  -->
+        <!--Entry for Task Name/Title-->
         <div class="modal-body">
           <form class="row g-3 needs-validation" id="taskForm" novalidate>
             <div class="col-md-6">  
@@ -41,12 +41,14 @@
               <div class= "valid-feedback">tasks entered</div>
               <div class= "invalid-feedback">enter task title</div>
             </div>
+            <!-- Entry for task due date -->
             <div class="col-md-6">
               <label for="task-due" class="form-label">Task Due Date:</label>
               <input type="date" class="form-control" id="task-due" required/>
               <div class= "valid-feedback">date entered</div>
               <div class= "invalid-feedback">enter due date</div>
             </div>
+            <!-- Entry for task description -->
             <div class="col-12">
               <label for="task-des" class="form-label">Task Description:</label>
               <input type= "text" class="form-control" id="task-desc" required/>

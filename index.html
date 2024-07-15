@@ -22,47 +22,47 @@
   </header>
   <div class="container">
     <div class="text-center mb-5">
-      <button id= 'add-btn' class="btn btn-success" data-bs-toggle="modal" data-bs-target="#formModal">Add Task</button>
+      <button id= 'open-modal-button' class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal-form">Add Task</button>
     </div>
 <!-- Beginning of modal -->
-    <div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="add-task">Add Task</h1>
-            <!-- Button to start add task -->
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            <!--  -->
-            <div class="modal-body">
-              <form class="row g-3 needs-validation" id="taskForm" novalidate>
-                <div class="col-md-6">  
-                  <label for="task-title" class="form-label"> Task Title:</label>
-                  <input type="text" class="form-control" id="taskTitle" required/>
-                  <div class= "valid-feedback">tasks entered</div>
-                  <div class= "invalid-feedback">enter task title</div>
-                </div>
-                <div class="col-md-6">
-                  <label for="task-due" class="form-label">Task Due Date:</label>
-                  <input type="date" class="form-control" id="taskDue" required/>
-                  <div class= "valid-feedback">date entered</div>
-                  <div class= "invalid-feedback">enter due date</div>
-                </div>
-                <div class="col-12">
-                  <label for="task-des" class="form-label">Task Description:</label>
-                  <input type= "text" class="form-control" id="taskDescription" required/>
-                  <div class= "valid-feedback"> description enetered</div>
-                  <div class= "invalid-feedback">enter description</div>
-                </div>
-                <div class="col-12">
-                  <button type="submit" class="btn btn-primary">Add Task</button>
-           </div>
-          </form>
-         </div>
-        </div>
+<div class="modal fade" id="modal-form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="add-task">Add Task</h1>
+        <!-- Button to start add task -->
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <!--  -->
+        <div class="modal-body">
+          <form class="row g-3 needs-validation" id="taskForm" novalidate>
+            <div class="col-md-6">  
+              <label for="task-title" class="form-label"> Task Title:</label>
+              <input type="text" class="form-control" id="task-name" required/>
+              <div class= "valid-feedback">tasks entered</div>
+              <div class= "invalid-feedback">enter task title</div>
+            </div>
+            <div class="col-md-6">
+              <label for="task-due" class="form-label">Task Due Date:</label>
+              <input type="date" class="form-control" id="task-due" required/>
+              <div class= "valid-feedback">date entered</div>
+              <div class= "invalid-feedback">enter due date</div>
+            </div>
+            <div class="col-12">
+              <label for="task-des" class="form-label">Task Description:</label>
+              <input type= "text" class="form-control" id="task-desc" required/>
+              <div class= "valid-feedback"> description enetered</div>
+              <div class= "invalid-feedback">enter description</div>
+            </div>
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary">Add Task</button>
        </div>
+      </form>
      </div>
     </div>
-    <!-- Ending of modal -->
+   </div>
+ </div>
+</div>
+<!-- Ending of modal -->
     <div class="row swim-lanes text-center justify-content-between">
       <div class="col-12 col-lg-4 d-flex">
         <div id="to-do" class="card border-light mb-3 lane flex-grow-1">

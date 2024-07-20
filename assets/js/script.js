@@ -57,14 +57,14 @@ return taskCard;
 // Todo: create a function to render the task list and make cards draggable
 function renderTaskList() {
     // Start with fresh before rendering updated list to avoid repeats
-    $('#task-list').empty();
+    $('#todo-cards').empty();
 
 // Loop through the tasks array and call createTaskCard for each
     for(let i = 0; i < tasks.length; i++) {
         const taskCard = createTaskCard(tasks[i]);
         console.log('Task card created:', taskCard);
         // Append the tasks to the paeg container from HTML
-        $('#task-list').append(taskCard); 
+        $('#todo-cards').append(taskCard); 
         // make task cards all draggable elements via jquery
         $(`#task${tasks[i].taskId}`).draggable();
     };
@@ -72,7 +72,6 @@ function renderTaskList() {
 };
 
 // Todo: create a function to handle adding a new task
-function handleAddTask () {
     // Triggers form submission
 $('#task-form').submit(function (event){
     event.preventDefault();
@@ -106,7 +105,6 @@ $('#task-form').submit(function (event){
     $('#modal-form').css('display', 'none');
 });
 
-};
 
 
 // Todo: create a function to handle deleting a task
@@ -157,8 +155,7 @@ tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 // Call to display the tasks on the page
 renderTaskList();
 // Add event listener to the add button to allow for calling of the handleAddTask function and trigger the modal when add button clicked
-$('#add-btn').on('click', handleAddTask);
-
+// $('#add-btn').on('click', handleAddTask);
 // Open modal to allow for user input
 $('#open-modal-button').click(function() {
     $('#modal-form').css('display', 'block');

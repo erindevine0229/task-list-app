@@ -155,7 +155,7 @@ tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 // Call to display the tasks on the page
 renderTaskList();
 // Add event listener to the add button to allow for calling of the handleAddTask function and trigger the modal when add button clicked
-// $('#add-btn').on('click', handleAddTask);
+
 // Open modal to allow for user input
 $('#open-modal-button').click(function() {
     $('#modal-form').css('display', 'block');
